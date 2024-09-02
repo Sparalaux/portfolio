@@ -132,6 +132,12 @@ h3{
     justify-content: space-evenly;
 }
 
+#projets div a button{
+    font-size: 20px;
+    font-weight: bold;
+    color: purple;
+}
+
 .projet{
     width: 600px;
     height: 100px;
