@@ -183,7 +183,20 @@ h3{
     color: purple;
 }
 
+.spatravaux p{
+    text-align: center;
+}
+
 @media (max-device-width : 600px) {
+    h2{
+        text-align: center;
+        color: purple;
+        font-size: 35px;
+        border-bottom: solid purple 3px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
     .menu{
         height: 80px;
         display: flex;
@@ -255,8 +268,8 @@ h3{
 
 /*competences*/
 #competences{
-    padding-top: 1%;
-    padding-bottom: 3;
+    padding-top: 3vh;
+    padding-bottom: 5vh;
     display: block;
     align-items: center;
     margin-bottom: 10%;
@@ -280,6 +293,9 @@ h3{
     margin-bottom: 10px;
     color: purple;
     border-bottom: solid purple 2px;
+    font-size: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 /*projet*/
 #projets{
@@ -299,8 +315,9 @@ h3{
 }
 
 .projet{
-    width: 100%;
+    width: 80%;
     height: 100px;
+    margin-left: 10%;
     box-shadow: 10px 5px 0px purple;
     margin-bottom: 20px;
     cursor: pointer;
@@ -313,6 +330,11 @@ h3{
     font-size: 40px;
     margin-bottom: 100px;
     border-bottom: solid purple 3px;
+}
+
+.retour{
+    border-bottom: none;
+    font-size: 30px;
 }
 
 .grotte{
@@ -346,6 +368,8 @@ h3{
     padding-top: 5%;
     text-align: center;
     font-size: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .grottedroite p span{
     color: purple;
