@@ -1,376 +1,250 @@
-*{
+/* =========================
+   VARIABLES
+========================= */
+:root {
+    --main: #7b2cbf;
+    --main-light: #9d4edd;
+    --bg: #f6f7fb;
+    --card-bg: #ffffff;
+    --text: #222;
+    --shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
     margin: 0;
     padding: 0;
-    
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.pagetitle{
-    text-align: center;
-    color: purple;
-    font-size: 70px;
-    margin-bottom: 100px;
-    border-bottom: solid purple 3px;
+body {
+    background: var(--bg);
+    color: var(--text);
 }
 
-h2{
-    text-align: center;
-    color: purple;
-    font-size: 40px;
-    border-bottom: solid purple 3px;
-}
-h3{
-    text-align: center;
-    color: purple;
-    font-size: 30px;
-    border-bottom: solid purple 3px;
-}
-/*HEADER*/
-.menu{
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    border-bottom: solid black 3px;
+/* =========================
+   HEADER / MENU
+========================= */
+.menu {
     position: fixed;
+    top: 0;
     width: 100%;
-    top: 0%;
-    background-color: white;
+    height: 80px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    align-items: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
-.menu li{
+.menu li {
     list-style: none;
 }
 
-.menu li a{
+.menu a {
     text-decoration: none;
-    font-size: 30px;
-    color: black;
-}
-.menu li a:hover{
-    transition: 0.5s;
-    font-size: 32px;
-    color: purple;
-}
-/*A propos de moi*/
-#propos{
-    background-color: rgb(189, 189, 189);
-    margin-top: 4%;
-    margin-bottom: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    height: 70vh;
+    font-size: 18px;
+    color: var(--text);
+    position: relative;
 }
 
-.gauche{
-    width: 15%;
+.menu a::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--main);
+    transition: 0.3s;
 }
 
-.gauche img{
+.menu a:hover::after {
     width: 100%;
-    border-radius: 0px 10px 10px 0px;
-    box-shadow: 10px 5px 0px purple;
 }
 
-.droite{
-    width: 25%;
-}
-.droite h1{
+/* =========================
+   TITRES
+========================= */
+.pagetitle,
+h2 {
     text-align: center;
+    font-size: 38px;
+    color: var(--main);
+    margin-bottom: 60px;
+    position: relative;
 }
 
-.droite p{
-    text-align: center;
-    font-size: 25px;
+.pagetitle::after,
+h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: var(--main);
+    display: block;
+    margin: 15px auto 0;
+    border-radius: 10px;
 }
-.droite p a{
+
+/* =========================
+   A PROPOS
+========================= */
+#propos {
+    margin-top: 120px;
+    padding: 100px 10%;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.gauche img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.droite h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.droite p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.droite a {
+    color: var(--main);
     text-decoration: none;
-    color: purple;
+    font-weight: 600;
 }
-.droite p a:hover{
-    border-bottom: solid purple 2px;
+
+/* =========================
+   COMPETENCES
+========================= */
+#competences {
+    padding: 100px 10%;
 }
-/*competences*/
-#competences,.competences{
+
+.competences {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.comp {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: var(--shadow);
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
-    height: 50vh;
+    justify-content: center;
+    min-height: 220px;
+    transition: 0.3s;
 }
 
-
-.comp{
-    width: 30%;
-    height: 200px;
-    text-align: center;
+.comp:hover {
+    transform: translateY(-8px);
 }
 
-.comp ul li{
-    list-style: none;
-}
-.comp img{
-    width: 15%;
-}
-
-.comp h2{
-    margin-bottom: 10px;
-    color: purple;
-    border-bottom: solid purple 2px;
-}
-
-/*projet*/
-#projets{
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-#projets div{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-#projets div a button{
-    font-size: 20px;
-    font-weight: bold;
-    color: purple;
-}
-
-.projet{
-    width: 600px;
-    height: 100px;
-    box-shadow: 10px 5px 0px purple;
+.comp h3 {
+    color: var(--main);
     margin-bottom: 20px;
+}
+
+.comp img {
+    width: 60px;
+    margin: 10px;
+}
+
+/* =========================
+   PROJETS
+========================= */
+#projets {
+    padding: 100px 10%;
+}
+
+#projets > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.projet {
+    background: var(--card-bg);
+    border-radius: 20px;
+    height: 180px;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+    width: 100%;
+}
+
+.projet:hover {
+    transform: scale(1.03);
     cursor: pointer;
 }
 
-/*GROTTE & REPITLE*/
-.grotte{
-    display: flex;
-    justify-content: space-evenly;
+/* =========================
+   PAGES PROJET
+========================= */
+.grotte {
+    padding: 100px 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
     align-items: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
 }
 
-.grottegauche{
-    width: 45%;
+.grottegauche img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
 }
 
-.grottegauche img{
-    width: 70%;
-    transition: 0.5s;
+.grottedroite p {
+    font-size: 18px;
+    line-height: 1.7;
 }
 
-.grottegauche img:hover{
-    width: 80%;
+.grottedroite span {
+    color: var(--main);
+    font-weight: 600;
 }
 
-.grottedroite{
-    width: 45%;
-}
-
-.grottedroite p{
-    padding-top: 5%;
-    text-align: center;
-    font-size: 20px;
-}
-.grottedroite p span{
-    color: purple;
-}
-
-.spatravaux p{
-    text-align: center;
-}
-
-@media (max-device-width : 600px) {
-    h2{
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    #propos {
+        grid-template-columns: 1fr;
         text-align: center;
-        color: purple;
-        font-size: 35px;
-        border-bottom: solid purple 3px;
-        padding-left: 5%;
-        padding-right: 5%;
     }
 
-    .menu{
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        border-bottom: solid black 3px;
-        position: fixed;
-        width: 100%;
-        top: 0%;
-        background-color: white;
-    }
-    
-    .menu li{
-        list-style: none;
-    }
-    
-    .menu li a{
-        text-decoration: none;
-        font-size: 15px;
-        color: black;
+    .grotte {
+        grid-template-columns: 1fr;
     }
 
-    /*A propos de moi*/
-#propos{
-    background-color: rgb(189, 189, 189);
-    margin-top: 4%;
-    margin-bottom: 5%;
-    display:block;
-    align-items: center;
-    justify-content: space-evenly;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    height: 80vh;
-}
-
-.gauche{
-    width: 50%;
-    padding-top: 5vh;
-}
-
-.gauche img{
-    width: 100%;
-    border-radius: 0px 10px 10px 0px;
-    box-shadow: 10px 5px 0px purple;
-    margin-top: 10vh;
-    margin-left: 50%;
-}
-
-.droite{
-    padding-top: 5vh;
-    width: 100%;
-}
-.droite h1{
-    text-align: center;
-    font-size: 25px;
-}
-
-.droite p{
-    text-align: center;
-    font-size: 20px;
-}
-.droite p a{
-    text-decoration: none;
-    color: purple;
-}
-.droite p a:hover{
-    border-bottom: solid purple 2px;
-}
-
-/*competences*/
-#competences{
-    padding-top: 3vh;
-    padding-bottom: 5vh;
-    display: block;
-    align-items: center;
-    margin-bottom: 10%;
-    height: 70vh;
-}
-
-.comp{
-    width: 100%;
-    height: 200px;
-    text-align: center;
-}
-
-.comp ul li{
-    list-style: none;
-}
-.comp img{
-    width: 15%;
-}
-
-.comp h2{
-    margin-bottom: 10px;
-    color: purple;
-    border-bottom: solid purple 2px;
-    font-size: 20px;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-/*projet*/
-#projets{
-    margin-top: 5%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-#projets div{
-    width: 100%;
-    display: block;
-    align-items: center;
-}
-
-#projets div a button{
-    font-size: 20px;
-    font-weight: bold;
-    color: purple;
-}
-
-.projet{
-    width: 80%;
-    height: 100px;
-    margin-left: 10%;
-    box-shadow: 10px 5px 0px purple;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
-/*GROTTE & REPITLE*/
-.pagetitle{
-    text-align: center;
-    color: purple;
-    font-size: 40px;
-    margin-bottom: 100px;
-    border-bottom: solid purple 3px;
-}
-
-.retour{
-    border-bottom: none;
-    font-size: 30px;
-}
-
-.grotte{
-    display: block;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-
-.grottegauche{
-    width: 100%;
-    padding-top: 5vh;
-}
-
-.grottegauche img{
-    width: 100%;
-    transition: 0.5s;
-}
-
-.grottegauche img:hover{
-    width: 80%;
-}
-
-.grottedroite{
-    width: 100%;
-    padding-top: 5vh;
-}
-
-.grottedroite p{
-    padding-top: 5%;
-    text-align: center;
-    font-size: 20px;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-.grottedroite p span{
-    color: purple;
-}
+    .menu {
+        gap: 30px;
     }
+}
+
+@media (max-width: 600px) {
+    .menu a {
+        font-size: 14px;
+    }
+
+    .pagetitle,
+    h2 {
+        font-size: 28px;
+    }
+}
