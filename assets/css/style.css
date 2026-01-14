@@ -1,5 +1,5 @@
 /* =========================
-   RESET + VARIABLES
+   RESET + BASE
 ========================= */
 * {
     margin: 0;
@@ -10,36 +10,23 @@
 
 :root {
     --main: #7a2cbf;
-    --bg-light: #f4f4f8;
+    --bg-light: #f7f7fb;
     --bg-grey: #ededf3;
     --text: #222;
-    --shadow: 0 10px 30px rgba(0,0,0,0.15);
+    --shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
 /* =========================
-   TITRES
+   GLOBAL
 ========================= */
-.pagetitle {
-    text-align: center;
-    color: var(--main);
-    font-size: 64px;
-    margin: 140px 0 80px;
-    border-bottom: 4px solid var(--main);
-    padding-bottom: 20px;
+body {
+    background: white;
+    color: var(--text);
 }
 
-h2 {
-    text-align: center;
-    color: var(--main);
-    font-size: 36px;
-    border-bottom: 3px solid var(--main);
-    margin-bottom: 30px;
-}
-
-h3 {
-    color: var(--main);
-    font-size: 28px;
-    margin-bottom: 20px;
+main {
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* =========================
@@ -47,14 +34,15 @@ h3 {
 ========================= */
 .menu {
     height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    position: fixed;
-    top: 0;
     width: 100%;
     background: white;
-    border-bottom: 3px solid black;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    border-bottom: 2px solid #000;
     z-index: 1000;
 }
 
@@ -62,214 +50,186 @@ h3 {
     list-style: none;
 }
 
-.menu li a {
+.menu a {
     text-decoration: none;
-    font-size: 24px;
+    font-size: 22px;
     color: var(--text);
     transition: 0.3s;
 }
 
-.menu li a:hover {
+.menu a:hover {
     color: var(--main);
-    transform: scale(1.1);
+}
+
+/* =========================
+   TITRES
+========================= */
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 42px;
+    color: var(--main);
+    margin: 120px 0 80px;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--main);
+    margin: 20px auto 0;
+}
+
+h3 {
+    color: var(--main);
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
 /* =========================
    A PROPOS
 ========================= */
 #propos {
+    padding: 140px 10%;
     background: var(--bg-grey);
-    padding: 120px 10%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 80px;
 }
 
 .gauche {
-    width: 20%;
+    width: 280px;
 }
 
 .gauche img {
     width: 100%;
-    border-radius: 0 16px 16px 0;
+    border-radius: 16px;
     box-shadow: var(--shadow);
 }
 
 .droite {
-    width: 35%;
-    text-align: center;
+    max-width: 500px;
 }
 
 .droite p {
-    font-size: 20px;
-    line-height: 1.6;
+    font-size: 18px;
+    margin: 10px 0;
 }
 
 .droite a {
     color: var(--main);
     text-decoration: none;
+    font-weight: 600;
 }
 
 /* =========================
-   COMPETENCES
+   COMPETENCES (BLOC PRINCIPAL)
 ========================= */
-#competences {
-    padding: 120px 10%;
-    display: flex;
-    justify-content: space-between;
+#competences,
+.competences {
+    padding: 0 10% 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    justify-items: center;
 }
 
+/* =========================
+   CARTE COMPETENCE
+========================= */
 .comp {
-    width: 30%;
+    width: 100%;
+    max-width: 360px;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
     text-align: center;
 }
 
+/* LOGOS */
 .comp img {
     width: 60px;
-    margin-bottom: 10px;
+    height: 60px;
+    object-fit: contain;
+    margin: 10px;
+    transition: 0.3s;
 }
 
-.comp ul li {
-    list-style: none;
+.comp img:hover {
+    transform: scale(1.15);
 }
 
 /* =========================
    PROJETS
 ========================= */
 #projets {
-    padding: 120px 10%;
+    padding: 0 10% 120px;
 }
 
-#projets div {
+#projets > div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
     flex-wrap: wrap;
 }
 
 .projet {
-    width: 600px;
-    height: 120px;
-    background: white;
-    margin-bottom: 30px;
-    box-shadow: var(--shadow);
+    width: 460px;
+    height: 80px;
+    border-radius: 16px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
     cursor: pointer;
+    background: white;
+    box-shadow: var(--shadow);
     transition: 0.3s;
 }
 
 .projet:hover {
+    background: var(--main);
+    color: white;
     transform: translateY(-5px);
-}
-
-/* =========================
-   PAGE PROJET (GROTTE)
-========================= */
-.retour {
-    position: fixed;
-    top: 100px;
-    left: 40px;
-    font-size: 32px;
-    text-decoration: none;
-    color: var(--main);
-    background: white;
-    padding: 10px 16px;
-    border-radius: 50%;
-    box-shadow: var(--shadow);
-    transition: 0.3s;
-    z-index: 1000;
-}
-
-.retour:hover {
-    transform: scale(1.1);
-}
-
-.grotte {
-    padding: 120px 10%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-}
-
-.grotte:nth-child(even) {
-    background: var(--bg-grey);
-}
-
-.grottegauche {
-    display: flex;
-    justify-content: center;
-}
-
-.grottegauche img {
-    width: 100%;
-    max-width: 520px;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    transition: 0.3s;
-}
-
-.grottegauche img:hover {
-    transform: scale(1.04);
-}
-
-.grottedroite p {
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-.grottedroite span {
-    color: var(--main);
-    font-weight: 600;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
-@media (max-width: 900px) {
-    .menu li a {
-        font-size: 16px;
+@media (max-width: 1000px) {
+    #competences,
+    .competences {
+        grid-template-columns: 1fr;
     }
 
-    #propos,
-    #competences {
+    #propos {
         flex-direction: column;
         text-align: center;
-    }
-
-    .gauche,
-    .droite,
-    .comp {
-        width: 100%;
-        margin-bottom: 40px;
-    }
-
-    .grotte {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .retour {
-        left: 20px;
     }
 }
 
 @media (max-width: 600px) {
-    .pagetitle {
-        font-size: 40px;
+    h1 {
+        font-size: 36px;
     }
 
     h2 {
-        font-size: 28px;
+        font-size: 32px;
     }
 
-    h3 {
-        font-size: 22px;
+    .menu {
+        gap: 20px;
     }
 
-    .projet {
-        width: 90%;
-    }
-
-    .grottedroite p {
+    .menu a {
         font-size: 16px;
     }
 }
+
